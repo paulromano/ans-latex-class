@@ -28,12 +28,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % headers and such (fancyhdr)
 %
-\setlength{\voffset}{0pt}
+\setlength{\voffset}{-46.8pt}
 \setlength{\hoffset}{0.0in}
-%\setlength{\topmargin}{-20pt}
-\setlength{\topmargin}{16pt}
+\setlength{\topmargin}{12pt}
 \setlength{\headsep}{16.8pt}
-\setlength{\headheight}{14pt}
+\setlength{\headheight}{18pt}
 \setlength{\footskip}{0.4in}
 
 \setlength{\parindent}{0pt}
