@@ -20,6 +20,9 @@ all: ${DOC}.dvi ${DOC}.ps
 
 ${DOC}.dvi: *.tex 
 	latex ${DOC}.tex
+	bibtex ${DOC}.aux
+	latex ${DOC}.tex
+	latex ${DOC}.tex
 
 ${DOC}.ps: ${DOC}.dvi
 	dvips -f ${DOC}.dvi -o ${DOC}.ps
@@ -43,7 +46,7 @@ ps: ${DOC}.ps
 	gv -antialias ${DOC}.ps 
 
 clean:
-	rm -f *.aux *.bbl *.blg *.dvi *.log *.toc *~
+	rm -f *.aux *.bbl *.blg *.dvi *.ps *.log *.toc *~
 
 quick: ${DOC}.dvi
 	xdvi ${DOC}.dvi

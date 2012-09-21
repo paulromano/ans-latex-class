@@ -149,12 +149,12 @@ manner than what is done here.  This is perfectly fine, so long as the
 established paper format/appearance is maintained.  This template is merely 
 to assist with maintaining uniformity in paper appearance.
 
-There are four types of reference styles: journal paper\cite{journal}, 
-proceedings paper\cite{proc_paper}, book\cite{book}, and website\cite{website}.
+There are four types of reference styles: journal paper\cite{journal},
+proceedings paper\cite{proc_paper}, book\cite{book}, and website\cite{techrep}.
 References to websites are discouraged, but acceptable if absolutely necessary.
-The paper will be included as a {\it .pdf} file for the proceedings. Note that 
+The paper will be included as a {\it .pdf} file for the proceedings. Note that
 it is the author's responsibility to review the final PDF version of the paper
-to ensure proper translation into PDF.  Final PDF file size should be no more 
+to ensure proper translation into PDF.  Final PDF file size should be no more
 than 10 MB. Recommended paper length is 10-12 pages.
 
 \Section{SECOND OR SUBSEQUENT MAJOR HEADING} 
@@ -184,7 +184,7 @@ Triple-space before the figure, and after the figure caption.
 \begin{figure}[!htb]
 \begin{spacing}{1.0}
 \centering
-\includegraphics[scale=0.60]{./figure.eps}
+\includegraphics[scale=0.60]{figure}
 \caption{\bf Speedup vs Number of Processors for Varying Parallelizable 
 Fractions in Order to See a Multiple Line Caption} 
 \label{fig:amdahl}
@@ -261,19 +261,8 @@ by R. Martineau (INL), who plagiarized (adapted) the files from A. Sood
 
 %\Section*{REFERENCES}
 \setlength{\baselineskip}{12pt}
-\begin{thebibliography}{300}
-\bibitem{journal} B. Author(s), ``Title,'' {\it Journal Name in Italic}, 
-          {\bf Volume in Bold}, pp. 34-89 (19xx).
-\bibitem{proc_paper} C. D. Author(s), ``Article Title,'' {\it Proceedings of
-          Meeting in Italic}, Location, Dates of Meeting, Vol. n, pp. 134-156 
-          (19xx).
-\bibitem{book} E. F. Author, {\it Book Title in Italic}, Publisher, City \&
-          Country (19xx). 
-\bibitem{website} ``Spallation Neutron Source: The next-generation 
-          neutron-scattering facility in the United States,'' 
-          http://www.sns.gov/documentation/sns\_brochure.pdf (2002).
-\end{thebibliography}
+
+\bibliographystyle{ans}
+\bibliography{references}
 
 \end{document}
-
-
