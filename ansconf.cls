@@ -1,7 +1,11 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{ansconf}[2012/09/21]
+
 \LoadClass[11pt,twoside]{article}
-\typeout{Loading MC2013 document class: includes [11pt,twoside]{article}}
-\typeout{adapted by R.C. Martineau at INL from A. Sood at LANL, from J. Wagner 
-  (ORNL) who obtained the original class file by Jim Warsa, LANL, 16 July 2002}
+\typeout{Loading ANS conference document class: includes [11pt,twoside]{article}}
+\typeout{adapted by Paul K. Romano from R.C. Martineau at INL, from A. Sood at
+  LANL, from J. Wagner (ORNL) who obtained the original class file by Jim Warsa,
+  LANL, 16 July 2002}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % bibliography
