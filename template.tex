@@ -30,41 +30,26 @@
 %  various packages that you may wish to activate for usage 
 \usepackage{graphicx}
 \usepackage{tabls}
-\usepackage{afterpage}
 \usepackage{cites}
 %\usepackage{epsf}
 %
 %
 % Insert authors' names and short version of title in lines below
 %
-\newcommand{\authorHead}      % Author's names here
-   {Authors' names, use et al. if more than 3}  
-\newcommand{\shortTitle}      % Short title here
-   {Short version of title as entered by author on web page}  
+\authorHead{Authors' names, use et al. if more than 3}
+\shortTitle{Short version of title as entered by author on web page}
+
+\confTitle{International Conference on Mathematics and Computational Methods
+  Applied to Nuclear Science \& Engineering (M\&C 2013)}
+\confLocation{Sun Valley, Idaho, USA, May 5-9, 2013}
+\confPublished{on CD-ROM, American Nuclear Society, LaGrange Park, IL (2013)}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   BEGIN DOCUMENT
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
-%
-%      Headers and Footers
-\afterpage{%
-\fancyhf{}%
-\fancyhead[CE]{              
-{\scriptsize \authorHead}}                                                
-\fancyhead[CO]{               
-{\scriptsize \shortTitle}}                  
-\lfoot{\scriptsize{
-International Conference on Mathematics and Computational Methods
-Applied to Nuclear Science \& Engineering (M\&C 2013), 
-\\ Sun Valley, Idaho, USA, May 5-9, 2013.}}%
-\rfoot{\thepage/\totalpages{}}%
-
-\pagestyle{fancy}
-%\setlength{\topmargin}{-20pt}
-}
 
 \normalsize
 

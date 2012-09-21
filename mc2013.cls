@@ -16,7 +16,6 @@
 \RequirePackage{setspace}
 \RequirePackage{indentfirst}
 \RequirePackage{fancyhdr}
-\RequirePackage{afterpage}
 \RequirePackage{times}
 
 \setlength{\textwidth}{6.5in}
@@ -40,17 +39,30 @@
 \setlength{\parindent}{0pt}
 \addtolength{\parskip}{1.0\baselineskip}
 
-\fancyhf{}
+\newcommand{\authorHead}[1]{\gdef\@authorHead{#1}}
+\newcommand{\shortTitle}[1]{\gdef\@shortTitle{#1}}
+\newcommand{\confTitle}[1]{\gdef\@confTitle{#1}}
+\newcommand{\confLocation}[1]{\gdef\@confLocation{#1}}
+\newcommand{\confPublished}[1]{\gdef\@confPublished{#1}}
+
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\lhead{\scriptsize{%
-\emph{International Conference on Mathematics and Computational Methods 
- Applied to Nuclear Science \& Engineering (M\&C 2013)} \\
-Sun Valley, Idaho, USA, May 5-9, 2013, on CD-ROM, American Nuclear
-Society, LaGrange Park, IL (2013)%
-}}
-\lfoot{}
+
+% Header/footer for other pages
+\fancyhf{}
+\fancyhead[CE]{{\scriptsize \@authorHead}}
+\fancyhead[CO]{{\scriptsize \@shortTitle}}
+\lfoot{\scriptsize{\@confTitle, \\ \@confLocation.}}
+\rfoot{\thepage/\totalpages{}}
 \pagestyle{fancy}
+
+% Header/footer for first page
+\fancypagestyle{first}{
+  \fancyhf{}
+  \lhead{\scriptsize{\emph{\@confTitle} \\ \@confLocation, \@confPublished}}
+  \lfoot{}
+}
+\AtBeginDocument{\thispagestyle{first}}
 
 \def\section{\@startsection{section}{1}{\z@}
 {1.0ex plus 1ex minus .2ex}{.2ex plus .2ex}{\normalsize\bf\center}}
