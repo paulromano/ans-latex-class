@@ -18,6 +18,7 @@
 \RequirePackage{fancyhdr}    % texlive-latex-base
 \RequirePackage{times}       % texlive-fonts-recommended
 \RequirePackage{lastpage}    % texlive-latex-extra
+\RequirePackage{caption}     % texlive-latex-recommended
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page layout stuff
@@ -84,109 +85,15 @@
 \titlespacing{\subsubsection}{0pt}{1.0ex plus 1ex minus .2ex}{.2ex plus .2ex}
 
 
-\renewcommand{\thetable}{\@Roman\c@table}
-
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \renewcommand{\footnotesize}{\fontsize{9}{10.8pt}\selectfont}
 \renewcommand{\small}{\fontsize{10}{12pt}\selectfont}
 \renewcommand{\large}{\fontsize{14}{16.8pt}\selectfont}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% borrowed from caption.sty in the standard LaTeX2e distribution
-%%
-%% This is file `caption.sty',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% caption.dtx  (with options: `package')
-%% 
-%% Copyright (C) 1994-95 Harald Axel Sommerfeldt
-%% 
-%\NeedsTeXFormat{LaTeX2e}[1994/06/01]
-%\ProvidesPackage{caption}[1995/04/05 v1.4b caption package (HS)]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Captions for figures and tables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\typeout{Package: caption v1.4b <1995/04/05> (Harald Sommerfeldt)}
-\newcommand{\captionsize}{}
-\newcommand{\captionfont}{\captionsize}
-\newcommand{\captionlabelfont}{}
-\newlength{\captionmargin}
-\newcommand{\as@normalcaption}[2]{%
-  #1 #2\par}
-\newcommand{\as@isucaption}[2]{%
-  \sbox{\as@captionbox}{#1\space}%
-  \addtolength{\as@captionwidth}{-\wd\as@captionbox}%
-  \usebox{\as@captionbox}\parbox[t]{\as@captionwidth}{\leavevmode#2}}
-\newcommand{\as@centercaption}[2]{%
-  \parbox[t]{\as@captionwidth}{{\centering#1 #2\par}}}
-\newcommand{\as@annecaption}[2]{%
-  \addtolength{\leftskip}{0pt plus 1fil}%
-  \addtolength{\rightskip}{0pt plus -1fil}%
-  \setlength{\parfillskip}{0pt plus 2fil}%
-  #1 #2\par}
-\let\as@shortcaption\as@centercaption
-\ifx\thesubfigure\undefined
-  \newcommand{\as@subcapsize}[1]{}
-\else%
-  \typeout{\space\space\space\space\space\space\space\space\space
-           `subfigure' package detected}
-  \let\as@subcapsize\subcapsize
-  \renewcommand{\@thesubfigure}{{\captionlabelfont\thesubfigure}\space}
-  \renewcommand{\@thesubtable}{{\captionlabelfont\thesubtable}\space}
-\fi
-\let\as@caption\as@normalcaption
-\newsavebox{\as@captionbox}
-\newlength{\as@captionwidth}
-\newcommand{\as@makecaption}[2]{%
-  \setlength{\leftskip}{\captionmargin}%
-  \setlength{\rightskip}{\captionmargin}%
-  \addtolength{\as@captionwidth}{-2\captionmargin}%
-  \captionfont%
-  \sbox{\as@captionbox}{{\captionlabelfont \textbf{#1.}} #2}%
-  \ifdim \wd\as@captionbox >\as@captionwidth
-    \as@caption{{\captionlabelfont \textbf{#1.}}}{#2}%
-  \else%
-    \as@shortcaption{{\captionlabelfont \textbf{#1.}}}{#2}%
-  \fi}
-\renewcommand{\@makecaption}[2]{%
-  \vskip\abovecaptionskip%
-  \setlength{\as@captionwidth}{\linewidth}%
-  \as@makecaption{#1}{#2}%
-  \vskip\belowcaptionskip}
-\ifx\@makerotcaption\undefined
-\else
-  \typeout{\space\space\space\space\space\space\space\space\space
-           `rotating' package detected}
-  \renewcommand{\@makerotcaption}[2]{%
-    \captionfont%
-    \sbox{\as@captionbox}{{\captionlabelfont \textbf{#1.}} #2}%
-    \ifdim \wd\as@captionbox > .8\vsize
-      \rotatebox{90}{%
-        \setlength{\as@captionwidth}{.8\textheight}%
-        \begin{minipage}{\as@captionwidth}%
-          \as@caption{{\captionlabelfont \textbf{#1.}}}{#2}%
-        \end{minipage}}\par
-    \else%
-      \rotatebox{90}{\usebox{\as@captionbox}}%
-    \fi
-    \hspace{12pt}}
-\fi
-\ifx\floatc@plain\undefined
-\else
-  \typeout{\space\space\space\space\space\space\space\space\space
-           `float' package detected}
-  \renewcommand\floatc@plain[2]{%
-    \setlength{\as@captionwidth}{\linewidth}%
-    \as@makecaption{#1}{#2}}
-  \ifx\as@ruled\undefined
-  \else
-    \renewcommand\floatc@ruled[2]{%
-      \setlength{\as@captionwidth}{\linewidth}%
-      \captionfont%
-      \as@caption{{\captionlabelfont \textbf{#1.}}}{#2}}
-  \fi
-\fi
-\endinput
-%%
-%% End of file `caption.sty'.
+\captionsetup{labelfont=bf, textfont=bf, labelsep=period}
+\captionsetup[table]{skip=0pt}
+\renewcommand{\thetable}{\@Roman\c@table}
