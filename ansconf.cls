@@ -7,17 +7,19 @@
   LANL, from J. Wagner (ORNL) who obtained the original class file by Jim Warsa,
   LANL, 16 July 2002}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% bibliography
-\RequirePackage{cite}
-\RequirePackage{titlesec} % texlive-latex-extra
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages needed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{cite}        % texlive-latex-recommended
+\RequirePackage{titlesec}    % texlive-latex-extra
+\RequirePackage{setspace}    % texlive-latex-recommended
+\RequirePackage{indentfirst} 
+\RequirePackage{fancyhdr}    % texlive-latex-base
+\RequirePackage{times}       % texlive-fonts-recommended
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page layout stuff
-\RequirePackage{setspace}
-\RequirePackage{indentfirst}
-\RequirePackage{fancyhdr}
-\RequirePackage{times}
 
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{9.0in}
@@ -26,7 +28,7 @@
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{0pt}
 \setlength{\hoffset}{0pt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % headers and such (fancyhdr)
 %
 \setlength{\voffset}{-46.8pt}
