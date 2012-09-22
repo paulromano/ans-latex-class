@@ -12,10 +12,6 @@
 \RequirePackage{cite}
 \RequirePackage{titlesec} % texlive-latex-extra
 
-%
-% rename reference section
-\renewcommand{\refname}{REFERENCES}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page layout stuff
 \RequirePackage{setspace}
