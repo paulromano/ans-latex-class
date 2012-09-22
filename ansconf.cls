@@ -67,11 +67,12 @@
 }
 \AtBeginDocument{\thispagestyle{first}}
 
-\def\section{\@startsection{section}{1}{\z@}
-{1.0ex plus 1ex minus .2ex}{.2ex plus .2ex}{\normalsize\bf\center}}
-\def\subsection{\@startsection{subsection}{2}{\z@} 
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+{1.0ex plus 1ex minus .2ex}{.2ex plus .2ex}
+{\normalsize\bf\center\MakeUppercase}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@} 
 {1.0ex plus 1ex minus .2ex}{.2ex plus .2ex}{\normalsize\bf}}
-\def\subsubsection{\@startsection{subsubsection}{3}{\z@}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}
 {1.0ex plus 1ex minus .2ex}{.2ex plus .2ex}{\normalsize\bf}}
 
 \renewcommand{\thetable}{\@Roman\c@table}
