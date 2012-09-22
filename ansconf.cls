@@ -17,6 +17,7 @@
 \RequirePackage{indentfirst} 
 \RequirePackage{fancyhdr}    % texlive-latex-base
 \RequirePackage{times}       % texlive-fonts-recommended
+\RequirePackage{lastpage}    % texlive-latex-extra
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page layout stuff
@@ -55,7 +56,7 @@
 \fancyhead[CE]{{\scriptsize \@authorHead}}
 \fancyhead[CO]{{\scriptsize \@shortTitle}}
 \lfoot{\scriptsize{\@confTitle, \\ \@confLocation.}}
-\rfoot{\thepage/\totalpages{}}
+\rfoot{\thepage/\pageref{LastPage}}
 \pagestyle{fancy}
 
 % Header/footer for first page
@@ -89,31 +90,6 @@
 \renewcommand{\footnotesize}{\fontsize{9}{10.8pt}\selectfont}
 \renewcommand{\small}{\fontsize{10}{12pt}\selectfont}
 \renewcommand{\large}{\fontsize{14}{16.8pt}\selectfont}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% borrowed from pagecounting.sty 
-% http://www-users.york.ac.uk/~zrs1/Software/pagecounting.sty)
-
-% History:
-%  Created 2000/04/07
-% -------- Identification
-%
-%\NeedsTeXFormat{LaTeX2e}
-%\ProvidesPackage{pagecounting}[2000/04/07 <Zoe Stephenson>]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcounter{l@stpage}
-\newcommand{\storel@st}{\immediate\write\@mainaux{%
-\setcounter{l@stpage}{\thepage}%
-% also could use: \setcounter{l@stpage}{\arabic{page}}%
-% also could use: \setcounter{l@stpage}{\number{page}}%
-\addtocounter{l@stpage}{0}}%  Adjust due to page counter post-advance
-}
-\renewcommand{\thel@stpage}{\arabic{l@stpage}}
-\AtEndDocument{\storel@st}
-\newcommand{\totalpages}{\thel@stpage}
-\newcommand{\lastpage}{\value{l@stpage}}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % borrowed from caption.sty in the standard LaTeX2e distribution
