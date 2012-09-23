@@ -19,6 +19,8 @@
 \RequirePackage{times}       % texlive-fonts-recommended
 \RequirePackage{lastpage}    % texlive-latex-extra
 \RequirePackage{caption}     % texlive-latex-recommended
+\RequirePackage{titling}     % texlive-latex-extra
+\RequirePackage{authblk}     % texlive-latex-extra
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page layout stuff
@@ -61,12 +63,11 @@
 \pagestyle{fancy}
 
 % Header/footer for first page
-\fancypagestyle{first}{
+\fancypagestyle{plain}{
   \fancyhf{}
   \lhead{\scriptsize{\emph{\@confTitle} \\ \@confLocation, \@confPublished}}
   \lfoot{}
 }
-\AtBeginDocument{\thispagestyle{first}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Styles for \section, \subsection, \subsubsection
@@ -97,3 +98,31 @@
 \captionsetup{labelfont=bf, textfont=bf, labelsep=period}
 \captionsetup[table]{skip=0pt}
 \renewcommand{\thetable}{\@Roman\c@table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title/Author/Abstract block
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\droptitle}{-44.9pt}
+\pretitle{\begin{center}\large\bfseries\MakeUppercase}
+\posttitle{\end{center}}
+\renewcommand{\maketitlehookb}{
+  \vspace{10pt}
+  \let\oldparskip\parskip
+  \setlength{\parskip}{-7pt}
+}
+
+\renewcommand\Authfont{\normalsize\bfseries}
+\setlength\affilsep{0pt}
+\date{}
+
+\renewcommand{\maketitlehookd}{
+  \setlength{\parskip}{\oldparskip}
+  \addtolength{\parskip}{1.0\baselineskip}
+  \vspace{-30pt}
+}
+
+\RequirePackage[style]{abstract}
+\renewcommand{\abstitlestyle}[1]{\bfseries\centering\MakeUppercase#1}
+
+\AtBeginDocument{\raggedright}
