@@ -1,0 +1,190 @@
+\documentclass{ansjournal}
+%
+%  various packages that you may wish to activate for usage
+\usepackage{graphicx}
+\usepackage{tabls}
+%
+% Insert authors' names and short version of title in lines below
+%
+\authorHead{Authors' names, use et al. if more than 3}
+\shortTitle{Short version of title as entered by author on web page}
+
+\confTitle{International Conference on Mathematics and Computational Methods
+  Applied to Nuclear Science \& Engineering (M\&C 2013)}
+\confLocation{Sun Valley, Idaho, USA, May 5-9, 2013}
+\confPublished{on CD-ROM, American Nuclear Society, LaGrange Park, IL (2013)}
+
+\title{Title of the Paper}
+
+\author{Author A}
+\author{Author B\footnote{Footnote, if necessary, in Times
+  New Roman font and font size 9}}
+\affil{Name of Institute \\
+  Corresponding Address \\
+  A@institute.gov; B@institute.gov}
+
+\author{Double space and list Author C}
+\affil{
+  Department of Nuclear Engineering \\
+  Name of University \\
+  Address \\
+  C@name.univ.edu
+}
+
+\abstractText{Use 8.5x11 paper size, with 1" margins on all sides.  A required
+  200-250 word abstract starts on this line.  Leave two blank lines before
+  ``ABSTRACT'' and one after.  Use 10 point Times New Roman here and single
+  spacing. The abstract is a very brief summary highlighting main
+  accomplishments, what is new, and how it relates to the state-of-the-art.}
+\keywordsText{List of at most five key words}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   BEGIN DOCUMENT
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+%\vspace{\baselineskip}
+%\noindent\textup{\textbf{Keywords}} ---
+%\end{abstract}
+
+\section{Introduction}
+
+Paper starts here with two blank lines before first section title.  Use
+8.5 x 11 paper size, with 1" margins on all sides.  Double-space before and
+after each subsequent section's title.  Most of the formatting is globally
+set by the specifications given in the {\it mc2013.cls} file.
+First-level section titles must be all uppercase and centered, and must
+be numbered in Arabic numerals as shown above.  Unlike the Word and WordPerfect
+templates, the body text and section titles for this {\LaTeX} template use
+11-point font.  A. Sood found that the 11-point font in {\LaTeX} more closely
+matched the 12-point font in Word and WordPerfect.  Introduce the topic of
+your work in this section.
+
+The first line of a paragraph is not indented; rather double-space between
+paragraphs.  This is done automatically. If you are a {\LaTeX} expert you
+can likely define the established format characteristics in a more elegant
+manner than what is done here.  This is perfectly fine, so long as the
+established paper format/appearance is maintained.  This template is merely
+to assist with maintaining uniformity in paper appearance.
+
+There are four types of reference styles: journal paper\cite{journal},
+proceedings paper\cite{proc_paper}, book\cite{book}, and website\cite{techrep}.
+References to websites are discouraged, but acceptable if absolutely necessary.
+The paper will be included as a {\it .pdf} file for the proceedings. Note that
+it is the author's responsibility to review the final PDF version of the paper
+to ensure proper translation into PDF.  Final PDF file size should be no more
+than 10 MB. Recommended paper length is 10-12 pages.
+
+\section{Second or Subsequent Major Heading}
+\label{sec:first}
+
+This is section~\ref{sec:first}. It is followed by a subsection, that is,
+\ref{sec:second}. For this class file you must use the
+\texttt{$\backslash$section\{\}} to denote sections (note the capital ``S'').
+The style for subsection titles and all text in this template is defined in
+the {\it mc2013.cls} file.  Make sure to avoid widow/orphan lines.
+
+
+\subsection{Subsection Title: First Character of Each Non-trivial Word is
+Uppercase}
+\label{sec:second}
+
+Double-space before and after secondary titles is automatic.  Figures and
+tables should appear as close as possible to where they are first
+cited, e.g., Fig. \ref{fig:amdahl}, in the text.  Figures are numbered in
+Arabic numerals, with the caption centered below the figure, in
+{\bf boldface}.
+
+Triple-space before the figure, and after the figure caption.
+
+%
+\vspace{16pt}
+\begin{figure}[!htb]
+\begin{spacing}{1.0}
+\centering
+\includegraphics[scale=0.60]{figure}
+\caption{Speedup vs Number of Processors for Varying Parallelizable Fractions in
+  Order to See a Multiple Line Caption}
+\label{fig:amdahl}
+\end{spacing}
+\end{figure}
+\vspace{16pt}
+%
+
+When importing figures or any graphical image please verify two things:
+\begin{itemize}
+\item Any number, text or symbol is in Times font and is not smaller than
+    10-point after reduction to the actual window in your paper
+\item That is can be translated into PDF
+\end{itemize}
+
+
+Equations, such as Eq. (\ref{sample_equation}), should be centered and
+sequentially numbered to the flush right of the formula.
+\begin{equation}
+  \label{sample_equation}
+  Speedup = \frac{1}{\frac{f}{p} + (1-f)}
+\end{equation}
+The continuation of a paragraph after an equation should not be indented.
+All paragraphs, as well as section or subsection headings, are separated by
+just one single empty line.
+
+
+\subsubsection{Sub-section level and lower: only first character uppercase}
+
+See Table \ref{table:example} for a sample table.  The tabls package is
+recommended for improved row and column spacing.  Notice the caption appears
+above the table by setting the \texttt{$\backslash$caption} command immediately
+after the \texttt{$\backslash$begin\{table\}}. Tables are numbered in Roman
+numerals, with the caption centered above the table, in {\bf boldface}.
+Triple-space before and after the table.
+
+\vspace{16pt}
+\begin{table}[!htb]
+\centering
+\caption{Parallel Performance for the Sample Problem}
+\label{table:example}
+\vspace{14pt}
+\begin{tabular}{||r||c|c|c||} \hline \hline
+ \multicolumn{1}{||c||}{Number of} &
+ \multicolumn{1}{c|}{Wall-Clock} &
+ \multicolumn{1}{c|}{Speedup} &
+ \multicolumn{1}{c||}{Efficiency} \\
+ \multicolumn{1}{||c||}{Processors} &
+ \multicolumn{1}{c|}{Time$^{a}$ (min)} &
+ \multicolumn{1}{c|}{(T$_{s}$/T$_{p}$)} &
+ \multicolumn{1}{c||}{(\%)} \\ \hline\hline
+\ 1 &  100.0 & \ ---    & ---  \\ \hline
+\ 2 &   52.6 & \ 1.9    & 95.0 \\ \hline \hline
+\end{tabular}
+\end{table}
+\vspace{16pt}
+
+
+\section{Conclusions}
+
+Present your summary and conclusions here.
+
+
+\section*{Acknowledgments}
+
+Acknowledge the help of colleagues and sources of funding, as appropriate.
+
+The format for this template was adapted from the template for PHYSOR 2002
+posted on the Internet.  Most of the {\LaTeX} format definitions contained
+in this and the accompanying files were adapted from sample files supplied
+by R. Martineau (INL), who plagiarized (adapted) the files from A. Sood
+(LANL), J. Wagner (ORNL), and James Warsa (LANL).
+
+
+%\section*{References}
+\setlength{\baselineskip}{12pt}
+
+\bibliographystyle{../bibtex-style/ans}
+\bibliography{references}
+
+\end{document}
