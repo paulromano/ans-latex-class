@@ -7,18 +7,27 @@
 % Packages needed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage{cite}        % texlive-latex-recommended
-\RequirePackage{titlesec}    % texlive-latex-extra
-\RequirePackage{setspace}    % texlive-latex-recommended
-\RequirePackage{indentfirst}
-\RequirePackage{fancyhdr}    % texlive-latex-base
-\RequirePackage{times}       % texlive-fonts-recommended
-\RequirePackage{lastpage}    % texlive-latex-extra
-\RequirePackage{caption}     % texlive-latex-recommended
-\RequirePackage{titling}     % texlive-latex-extra
-\RequirePackage[noblocks]{authblk}     % texlive-latex-extra
-\RequirePackage[t1,nosfdefault,semibold]{sourcesanspro}
-\RequirePackage{newtxtext,newtxmath}
+\RequirePackage{setspace}                               % texlive-latex-recommended
+\RequirePackage{indentfirst}                            % texlive-latex-base
+\RequirePackage{fancyhdr}                               % texlive-latex-base
+\RequirePackage{times}                                  % texlive-fonts-recommended
+\RequirePackage{lastpage}                               % texlive-latex-extra
+\RequirePackage{caption}                                % texlive-latex-recommended
+\RequirePackage{titling}                                % texlive-latex-extra
+\RequirePackage[noblocks]{authblk}                      % texlive-latex-extra
+\RequirePackage[t1,nosfdefault,semibold]{sourcesanspro} % texlive-fonts-extra
+\RequirePackage{newtxtext,newtxmath}                    % texlive-fonts-extra
+\RequirePackage[runin]{abstract}                        % texlive-latex-extra
+\RequirePackage{xcolor}                                 % texlive-latex-recommended
+\definecolor{ANSBlue}{RGB}{28,78,157}
+\RequirePackage{hyperref}                               % texlive-latex-base
+\RequirePackage[superscript]{cite}                      % texlive-latex-recommended
+\hypersetup{
+  colorlinks=true,
+  citecolor=ANSBlue,
+  linkcolor=ANSBlue,
+  urlcolor=ANSBlue
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page layout stuff
@@ -47,9 +56,6 @@
 \newcommand{\keywordsText}[1]{\gdef\@keywordsText{#1}}
 \newcommand{\authorHead}[1]{\gdef\@authorHead{#1}}
 \newcommand{\shortTitle}[1]{\gdef\@shortTitle{#1}}
-\newcommand{\confTitle}[1]{\gdef\@confTitle{#1}}
-\newcommand{\confLocation}[1]{\gdef\@confLocation{#1}}
-\newcommand{\confPublished}[1]{\gdef\@confPublished{#1}}
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -73,20 +79,48 @@
 % Styles for \section, \subsection, \subsubsection
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\Alph{subsection}}
+% It would be a lot easier in principle to do all this customization using the
+% 'titlesec' package, but unfortunately it is not compatible with hyperref, so
+% we do all customization by changing TeX internals.
 
-\titlelabel{\thetitle.\enskip}  % Add period after section number
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
+
+% Add period after section number
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\enskip}
 
 % Set format for headings
-\titleformat*{\section}{\fontfamily{SourceSansPro-LF}\selectfont\normalsize\bfseries\MakeUppercase}
-\titleformat{\subsection}{\fontfamily{SourceSansPro-LF}\selectfont\normalsize\bfseries}{\thesection.\thesubsection.\enskip}{0pt}{}
-\titleformat*{\subsubsection}{\normalsize\bfseries}
+\renewcommand{\section}{\@startsection
+  {section}%                   % the name
+  {1}%                         % the level
+  {\z@}%                       % the indent / 0mm
+  {-\baselineskip}%            % the before skip / -3.5ex \@plus -1ex \@minus -.2ex
+  {0.5\baselineskip}%          % the after skip / 2.3ex \@plus .2ex
+  {\fontfamily{SourceSansPro-LF}\selectfont\normalsize\bfseries\MakeUppercase}} % the style
+\renewcommand{\subsection}{\@startsection
+  {subsection}%                % the name
+  {2}%                         % the level
+  {\z@}%                       % the indent / 0mm
+  {-\baselineskip}%            % the before skip / -3.5ex \@plus -1ex \@minus -.2ex
+  {0.5\baselineskip}%          % the after skip / 2.3ex \@plus .2ex
+  {\fontfamily{SourceSansPro-LF}\selectfont\normalsize\bfseries}} % the style
+\renewcommand{\subsubsection}{\@startsection
+  {subsubsection}%             % the name
+  {3}%                         % the level
+  {\z@}%                       % the indent / 0mm
+  {-\baselineskip}%            % the before skip / -3.5ex \@plus -1ex \@minus -.2ex
+  {0.5\baselineskip}%          % the after skip / 2.3ex \@plus .2ex
+  {\normalsize\bfseries}} % the style
+
+% Set format for headings
+%\titleformat*{\section}{\fontfamily{SourceSansPro-LF}\selectfont\normalsize\bfseries\MakeUppercase}
+%\titleformat{\subsection}{\fontfamily{SourceSansPro-LF}\selectfont\normalsize\bfseries}{\thesection.\thesubsection.\enskip}{0pt}{}
+%\titleformat*{\subsubsection}{\normalsize\bfseries}
 
 % Set spacing for headings
-\titlespacing{\section}{0pt}{1.0ex plus 1ex minus .2ex}{1.0\baselineskip}
-\titlespacing{\subsection}{0pt}{1.0\baselineskip}{1.0\baselineskip}
-\titlespacing{\subsubsection}{0pt}{1.0ex plus 1ex minus .2ex}{.2ex plus .2ex}
+%\titlespacing{\section}{0pt}{1.0ex plus 1ex minus .2ex}{1.0\baselineskip}
+%\titlespacing{\subsection}{0pt}{1.0\baselineskip}{1.0\baselineskip}
+%\titlespacing{\subsubsection}{0pt}{1.0ex plus 1ex minus .2ex}{.2ex plus .2ex}
 
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
@@ -134,7 +168,6 @@
 }
 
 
-\RequirePackage[runin]{abstract}
 \renewcommand{\abstractnamefont}{\normalfont}
 \renewcommand{\abstracttextfont}{\normalfont\itshape}
 \renewcommand{\abstractname}{\textbf{Abstract} ---}
