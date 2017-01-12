@@ -18,36 +18,45 @@
 \RequirePackage[t1,nosfdefault,semibold]{sourcesanspro} % texlive-fonts-extra
 \RequirePackage{newtxtext,newtxmath}                    % texlive-fonts-extra
 \RequirePackage[runin]{abstract}                        % texlive-latex-extra
+\RequirePackage{amsmath}                                % texlive-latex-base
 \RequirePackage{xcolor}                                 % texlive-latex-recommended
 \definecolor{ANSBlue}{RGB}{28,78,157}
 \RequirePackage{hyperref}                               % texlive-latex-base
-\RequirePackage[superscript]{cite}                      % texlive-latex-recommended
 \hypersetup{
   colorlinks=true,
   citecolor=ANSBlue,
   linkcolor=ANSBlue,
   urlcolor=ANSBlue
 }
+\RequirePackage[superscript]{cite}                      % texlive-latex-recommended
+\RequirePackage{algorithm}
+\RequirePackage{algorithmicx}
+\RequirePackage{algpseudocode}
+\RequirePackage[nameinlink,capitalize]{cleveref}        % texlive-latex-extra
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % page layout stuff
 
-\setlength{\textwidth}{6.5in}
-\setlength{\textheight}{9.0in}
-\setlength{\marginparsep}{0pt}
-\setlength{\marginparwidth}{0pt}
-\setlength{\oddsidemargin}{0pt}
-\setlength{\evensidemargin}{0pt}
-\setlength{\hoffset}{0pt}
+\RequirePackage[margin=0.75in]{geometry}
+
+%\setlength{\textwidth}{6.5in}
+%\setlength{\textheight}{9.0in}
+%\setlength{\marginparsep}{0pt}
+%\setlength{\marginparwidth}{0pt}
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\evensidemargin}{0pt}
+%\setlength{\hoffset}{0pt}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % headers and such (fancyhdr)
 %
-\setlength{\voffset}{-46.8pt}
-\setlength{\hoffset}{0.0in}
-\setlength{\topmargin}{12pt}
-\setlength{\headsep}{16.8pt}
-\setlength{\headheight}{18pt}
-\setlength{\footskip}{0.4in}
+%\setlength{\voffset}{-46.8pt}
+%\setlength{\hoffset}{0.0in}
+%\setlength{\topmargin}{12pt}
+%\setlength{\headsep}{16.8pt}
+%\setlength{\headheight}{18pt}
+%\setlength{\footskip}{0.4in}
 
 %\setlength{\parindent}{0pt}
 %\addtolength{\parskip}{1.0\baselineskip}
@@ -135,7 +144,7 @@
 \DeclareCaptionLabelSeparator{twonewline}{\\ \vspace{\baselineskip}}
 \captionsetup{font=normalfont, labelsep=period}
 \captionsetup[figure]{name=Fig.}
-\captionsetup[table]{name=TABLE, skip=-10pt, labelsep=twonewline}
+\captionsetup[table]{name=TABLE, skip=0pt, labelsep=newline}
 \renewcommand{\thetable}{\@Roman\c@table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
