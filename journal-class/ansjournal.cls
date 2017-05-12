@@ -20,7 +20,7 @@
 \RequirePackage[runin]{abstract}                        % texlive-latex-extra
 \RequirePackage{amsmath}                                % texlive-latex-base
 \RequirePackage{xcolor}                                 % texlive-latex-recommended
-\definecolor{ANSBlue}{RGB}{28,78,157}
+\definecolor{ANSBlue}{RGB}{0,0,128}
 \RequirePackage{hyperref}                               % texlive-latex-base
 \hypersetup{
   colorlinks=true,

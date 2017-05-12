@@ -44,6 +44,8 @@ ENTRY
 %           For book entries, the title field should be used instead.
     chapter
 %           Chapter (or section or whatever) number.
+    doi
+%           Digital object identifier (DOI).
     edition
 %           Edition of a book---should be an ordinal (e.g., "Second").
     editor
@@ -344,10 +346,22 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
+FUNCTION {output.doi}
+{ duplicate$ empty$
+    { pop$ "" }
+    { doi empty$
+        { skip$ }
+        { "; \href{http://dx.doi.org/" doi * "}{http://dx.doi.org/" * doi * "}" * * }
+      if$
+    }
+  if$
+}
+
 % This function finishes all entries.
 
 FUNCTION {fin.entry}
-{ add.period$
+{ output.doi
+  add.period$
   write$
   newline$
 }
@@ -905,7 +919,7 @@ FUNCTION {format.pages.a}
 FUNCTION {format.vol.num.pages}
 { volume empty$
     'skip$
-    { 
+    {
       "," *
       volume field.or.null embolden
       " " swap$ * *
@@ -1223,7 +1237,7 @@ FUNCTION {article}
   new.block
   crossref missing$
     { journal field.or.null emphasize
-      format.vol.num.pages 
+      format.vol.num.pages
       format.date empty$
         'skip$
         { duplicate$ empty$
