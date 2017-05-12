@@ -190,6 +190,5 @@
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\makeatletter
+\renewcommand\refname{R\lowercase{eferences}}
 \renewcommand\@biblabel[1]{#1.}
-\makeatother
