@@ -351,7 +351,7 @@ FUNCTION {output.doi}
     { pop$ "" }
     { doi empty$
         { skip$ }
-        { "; \href{http://dx.doi.org/" doi * "}{http://dx.doi.org/" * doi * "}" * * }
+        { "; \href{https://doi.org/" doi * "}{https://doi.org/" * doi * "}" * * }
       if$
     }
   if$
